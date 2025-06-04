@@ -1,72 +1,71 @@
-#include<iostream>
+#include <iostream>Add commentMore actions
 using namespace std;
-class person{
-    string name;
-    string address;
-    public:
-    void get1()
-    {
-        cout<<"enter name "<<endl;
-        getline(cin,name);
-        cout<<"enter address"<<endl;
-        getline(cin,address);
+
+class Person {
+    string name, address;
+
+   public:
+    void getPerson() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Address: ";
+        cin >> address;
     }
-    void display1()
-    {
-        cout<<"name     :"<<name<<endl;
-        cout<<"address  : "<<address<<endl;
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Address: " << address << endl;
     }
 };
-class student:public person
-{
+
+class Student : public Person {
     int roll;
     float percentage;
-    public:
-    void get2()
-    {
-        cout<<"enter roll"<< endl;
-        cin>>roll;
-        cin.ignore();
-        cout<<"enter percentage"<<endl;
-        cin>>percentage;
-        cin.ignore();
-    }   
-    void display2()
-    {
-        cout<<"roll     :"<<roll<<endl;
-        cout<<"percentage:"<<percentage<<endl;
+
+   public:
+    void getStudent() {
+        cout << "Enter Student's Roll: ";
+        cin >> roll;
+        cout << "Enter Student's Percentage: ";
+        cin >> percentage;
+    }
+    void display() {
+        cout << "Roll: " << roll << endl;
+        cout << "Percentage: " << percentage << endl;
     }
 };
-class teacher : public person{
+
+class Teacher : public Person {
     int id;
     string subject;
-    public:
-    void get3()
-    {
-        cout<<"enter id "<<endl;
-        cin>>id;
-        cin.ignore();
-        cout<<"enter subject"<<endl;
-        getline(cin,subject);
+
+   public:
+    void getTeacher() {
+        cout << "Enter Teacher's ID: ";
+        cin >> id;
+        cout << "Enter Teacher's Subject: ";
+        cin >> subject;
     }
-    void display3()
-    {
-        cout<<"id       : "<<id<<endl;
-        cout<<"subject  : "<<subject<<endl;
+    void display() {
+        cout << "Teacher's ID: " << id << endl;
+        cout << "Teacher's Subject: " << subject << endl;
     }
 };
-int main()
-{
-    student s;
-    teacher t;
-    s.get1();
-    s.get2();
-    t.get1();
-    t.get3();
-    s.display1();
-    s.display2();
-    t.display1();
-    t.display3();
-    return 0;
 
+int main() {
+    Student s;
+    Teacher t;
+    cout << "\nEnter Student's Details\n";
+    s.getPerson();
+    s.getStudent();
+    cout << "\nStudent's Details\n";
+    s.Person::display();
+    s.display();
+
+    cout << "\nEnter Teacher's Details\n";
+    t.getPerson();
+    t.getTeacher();
+    cout << "\nTeacher's Details\n";
+    t.Person::display();
+    t.display();
+    return 0;
 }
